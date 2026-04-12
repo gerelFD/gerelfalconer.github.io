@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerel Falconer — The Rapperturg</title>
+<meta name="description" content="Gerel Falconer — The Rapperturg. OFFIE & BBTA award-winning actor, playwright, lyricist. Workshops, speaking, LAMDA tuition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--card:#141414;--card2:#1a1a1a;--accent-bg:#1a0f24;--text:#f0ece4;--text2:#8a8580;--muted:#5a5550;--gold:#c9a84c;--gold-glow:rgba(201,168,76,0.15);--purple:#7b5ea7;--purple-glow:rgba(123,94,167,0.12);--df:'Cormorant Garamond',Georgia,serif;--db:'Outfit',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--db);font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none;transition:opacity .2s}a:hover{opacity:.8}
+.page{display:none;min-height:100vh}.page.active{display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,.08)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 24px;height:56px}
+.nav-logo{font-family:var(--df);font-size:18px;font-weight:700;color:var(--text);cursor:pointer}.nav-logo span{color:var(--gold);font-weight:400;font-style:italic;font-size:14px;margin-left:8px}
+.nav-toggle{background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;display:block}
+.nav-menu{display:none;position:absolute;top:56px;left:0;right:0;background:rgba(10,10,10,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,.08);padding:8px 0}.nav-menu.open{display:block}
+.nav-menu a{display:block;padding:14px 24px;color:var(--text2);font-size:14px;letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.03);transition:color .2s}
+.nav-menu a:hover,.nav-menu a.active{color:var(--gold);opacity:1}
+@media(min-width:768px){.nav-toggle{display:none}.nav-menu{display:flex!important;position:static;background:none;border:none;padding:0}.nav-menu a{padding:16px 14px;border:none;font-size:11px}}
+.hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(123,94,167,.05) 0%,transparent 50%),var(--bg)}
+.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}
+.hero-eyebrow{font-size:11px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:24px;animation:fadeUp .8s ease-out both}
+.hero h1{font-family:var(--df);font-size:clamp(48px,12vw,80px);font-weight:700;line-height:.95;letter-spacing:-2px;color:var(--text);margin-bottom:12px;animation:fadeUp .8s ease-out .1s both}
+.hero-subtitle{font-family:var(--df);font-size:clamp(18px,4vw,26px);font-style:italic;color:var(--gold);letter-spacing:2px;animation:fadeUp .8s ease-out .2s both}
+.hero-tagline{font-size:15px;color:var(--text2);margin-top:20px;max-width:420px;margin-left:auto;margin-right:auto;animation:fadeUp .8s ease-out .3s both}
+.hero-awards{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:32px;animation:fadeUp .8s ease-out .4s both}
+.award-badge{padding:6px 16px;border-radius:24px;font-size:11px;font-weight:500;background:var(--gold-glow);color:var(--gold);border:1px solid rgba(201,168,76,.2)}
+.award-badge.hot{background:rgba(201,168,76,.2);border-color:rgba(201,168,76,.4)}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;animation:fadeUp .8s ease-out .5s both}
+.btn{padding:12px 28px;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:var(--db);transition:all .3s}
+.btn-primary{background:var(--gold);color:#000;border:none}.btn-primary:hover{background:#d4b35a}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.4)}.btn-outline:hover{background:var(--gold-glow)}
+.quote-strip{padding:28px 24px;text-align:center;border-top:1px solid rgba(201,168,76,.06);border-bottom:1px solid rgba(201,168,76,.06);background:var(--card)}
+.quote-stars{color:var(--gold);font-size:16px;letter-spacing:3px}.quote-text{font-family:var(--df);font-size:17px;font-style:italic;color:var(--text);margin-top:10px;opacity:.9}.quote-source{font-size:12px;color:var(--muted);margin-top:6px}
+.venue-strip{padding:32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.03);background:var(--card)}
+.venue-strip-label{font-size:10px;letter-spacing:3px;color:var(--muted);margin-bottom:12px}.venue-strip-list{font-size:13px;color:var(--muted);line-height:2}
+.section{padding:60px 24px;max-width:800px;margin:0 auto}
+.section-label{font-size:10px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.section-title{font-family:var(--df);font-size:clamp(28px,6vw,38px);font-weight:700;color:var(--text);margin-bottom:32px;position:relative;padding-bottom:16px}
+.section-title::after{content:'';position:absolute;bottom:0;left:0;width:40px;height:2px;background:var(--gold)}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:6px;padding:24px;margin-bottom:16px;transition:border-color .3s}
+.card:hover{border-color:rgba(201,168,76,.12)}
+.card-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:inline-block;padding:3px 8px;border-radius:3px}
+.card h3{font-family:var(--df);font-size:22px;font-weight:700;color:var(--text);margin-bottom:4px}
+.card-subtitle{font-size:13px;color:var(--gold);margin-bottom:4px}.card-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
+.card p{font-size:14px;color:var(--text2)}.card-quote{font-family:var(--df);font-size:15px;font-style:italic;color:var(--gold);margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.04)}
+.card-awards{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.card-award{font-size:10px;font-weight:600;color:var(--gold);background:var(--gold-glow);padding:3px 10px;border-radius:3px}
+.detail-toggle{display:inline-block;margin-top:12px;font-size:12px;color:var(--gold);cursor:pointer;font-weight:500}.detail-toggle:hover{opacity:.7}
+.detail-content{display:none;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.04)}.detail-content.open{display:block}
+.detail-content p{font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.7}
+.detail-link{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.02);border-radius:4px;margin-bottom:6px;font-size:13px;color:var(--text2);transition:background .2s}.detail-link:hover{background:rgba(201,168,76,.06)}
+.detail-link-url{font-size:11px;color:var(--gold)}
+.about-intro{font-family:var(--df);font-size:20px;font-style:italic;color:var(--gold);line-height:1.5;margin-bottom:28px;padding-left:16px;border-left:2px solid rgba(201,168,76,.3)}
+.about-body p{font-size:15px;color:var(--text2);margin-bottom:16px}.about-body strong{color:var(--text);font-weight:500}
+.workshop-card{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:6px;overflow:hidden;margin-bottom:16px}.workshop-accent{height:3px}.workshop-body{padding:24px}
+.workshop-body h3{font-family:var(--df);font-size:22px;font-weight:700;color:var(--text);margin:6px 0 8px}
+.workshop-audience{font-size:12px;color:var(--purple);margin-bottom:4px}.workshop-details{font-size:12px;color:var(--muted);margin-bottom:12px}.workshop-body p{font-size:14px;color:var(--text2)}
+.press-logos{text-align:center;padding:24px;background:var(--card);border-radius:6px;margin-bottom:24px;border:1px solid rgba(255,255,255,.04)}
+.press-logos-label{font-size:10px;letter-spacing:3px;color:var(--muted);margin-bottom:12px}.press-logos-list{font-size:15px;color:var(--text2);line-height:2.2;font-family:var(--df);font-weight:600}
+.review-card{background:var(--accent-bg);border:1px solid rgba(123,94,167,.1);border-radius:6px;padding:20px;margin-bottom:10px}
+.review-stars{color:var(--gold);font-size:14px;letter-spacing:2px}.review-text{font-family:var(--df);font-size:16px;font-style:italic;color:var(--text);margin-top:8px;line-height:1.5;opacity:.9}.review-source{font-size:12px;color:var(--muted);margin-top:8px}
+.press-link{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:4px;margin-bottom:6px;font-size:14px;color:var(--text2)}.press-link:hover{border-color:rgba(201,168,76,.15)}.press-link-url{font-size:12px;color:var(--gold)}
+.contact-card{background:var(--card);border:1px solid rgba(201,168,76,.1);border-radius:6px;padding:28px;margin-bottom:16px}
+.contact-card h3{font-family:var(--df);font-size:20px;font-weight:700;color:var(--text);margin-bottom:16px}
+.contact-row{display:flex;gap:12px;margin-bottom:10px;font-size:14px}.contact-label{color:var(--muted);min-width:70px;font-weight:500}.contact-value{color:var(--text2)}.contact-value a{color:var(--gold)}
+.contact-cta{background:linear-gradient(135deg,var(--gold),#a88a3a);border-radius:6px;padding:32px;text-align:center;margin-top:24px}
+.contact-cta h3{font-family:var(--df);font-size:24px;font-weight:700;color:#000;margin-bottom:8px}.contact-cta p{font-size:14px;color:rgba(0,0,0,.7)}
+.wid-card{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:6px;padding:24px;margin-bottom:12px;cursor:pointer;transition:border-color .3s,transform .2s}
+.wid-card:hover{border-color:rgba(201,168,76,.15);transform:translateY(-2px)}
+.wid-card h3{font-family:var(--df);font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}.wid-card p{font-size:14px;color:var(--text2);margin-bottom:8px}.wid-card-link{font-size:12px;color:var(--gold);font-weight:500}
+footer{padding:32px 24px 48px;text-align:center;border-top:1px solid rgba(255,255,255,.03);background:#060606}
+.footer-name{font-family:var(--df);font-size:18px;color:var(--text);font-weight:700}.footer-subtitle{font-family:var(--df);font-size:13px;color:var(--gold);font-style:italic;margin-top:4px}
+.footer-info{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.8}.footer-copy{font-size:10px;color:rgba(255,255,255,.1);margin-top:16px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><div class="nav-logo" onclick="showPage('home')">Gerel Falconer <span>The Rapperturg</span></div><button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">&#9776;</button><div class="nav-menu" id="navMenu"><a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a><a href="#" onclick="showPage('about')" data-page="about">About</a><a href="#" onclick="showPage('work')" data-page="work">Work</a><a href="#" onclick="showPage('music')" data-page="music">Music &amp; Media</a><a href="#" onclick="showPage('workshops')" data-page="workshops">Workshops</a><a href="#" onclick="showPage('press')" data-page="press">Press</a><a href="#" onclick="showPage('contact')" data-page="contact">Book Me</a></div></div></nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+<div class="hero"><div class="hero-eyebrow">Award-Winning Actor &bull; Playwright &bull; Lyricist</div><h1>Gerel<br>Falconer</h1><div class="hero-subtitle">The Rapperturg</div><p class="hero-tagline">Telling stories through bars. Fusing theatre with Hip-Hop, Grime, UK Drill &amp; Dancehall.</p><div class="hero-awards"><span class="award-badge hot">★ OFFIE Winner 2026</span><span class="award-badge">★ BBTA Winner 2023</span><span class="award-badge">★ Stage Debut Nominee</span></div><div class="hero-ctas"><button class="btn btn-primary" onclick="showPage('workshops')">Book a Workshop</button><button class="btn btn-outline" onclick="showPage('work')">See the Work</button></div></div>
+<div class="quote-strip"><div class="quote-stars">★★★★★</div><div class="quote-text">"An exciting new voice in UK theatre"</div><div class="quote-source">— All That Dazzles</div></div>
+<div class="section"><div class="section-label">What I Do</div>
+<div class="wid-card" onclick="showPage('work')"><h3>Perform</h3><p>One-man shows, gig theatre, and ensemble work at the UK's leading venues. Creator and performer of Tones: A Hip-Hop Opera.</p><span class="wid-card-link">See the work →</span></div>
+<div class="wid-card" onclick="showPage('work')"><h3>Write</h3><p>Published playwright. Rapperturgy, lyrics and book for new musicals fusing hip-hop with theatre. From Barbican to Edinburgh Fringe.</p><span class="wid-card-link">See the work →</span></div>
+<div class="wid-card" onclick="showPage('workshops')"><h3>Teach &amp; Inspire</h3><p>School workshops, university lectures, corporate keynotes, and private LAMDA tuition. Engaging students through rhythm and rhyme.</p><span class="wid-card-link">View workshops →</span></div></div>
+<div class="venue-strip"><div class="venue-strip-label">Performed At</div><div class="venue-strip-list">Barbican &bull; Brixton House &bull; Bristol Old Vic &bull; Roundhouse &bull; The Lowry<br>Edinburgh Fringe &bull; Norwich Theatre &bull; Belgrade Theatre &bull; SICK Festival</div></div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about"><div style="height:56px"></div><div class="section"><div class="section-label">About</div><div class="section-title">The Rapperturg</div>
+<div class="about-intro">"Our work is a hoist, to raise the voice of the disadvantaged whose opinions only seem to be heard when they're chanted."</div>
+<div class="about-body">
+<p>Gerel Falconer — aka G, aka The Rapperturg — is an award-winning actor, playwright, and lyricist from Northwest London. He specialises in fusing theatre with UK Hip-Hop, Grime, UK Drill, Jamaican Dancehall, Reggae and spoken word poetry. This unique style of storytelling through bars earned him the title of <strong>Rapperturg</strong>.</p>
+<p>Gerel trained at East 15 Acting School, where he received a BA (Hons) in Acting and won the 2012 Lilian Bayliss Award. He is a <strong>founding member of HighRise Theatre</strong> (now HighRise Entertainment) — the acclaimed theatre collective whose work has been featured in GQ, The Guardian, The New York Times, and The Evening Standard.</p>
+<p>He is the creator and performer of <strong>Tones: A Hip-Hop Opera</strong> — a one-man show that has earned five-star reviews across the board and won the OFFIE Award for Sound &amp; Music (2026). The show has toured nationally to Brixton House, Edinburgh Fringe, Bristol Old Vic, The Lowry, Norwich Theatre, and many more.</p>
+<p>Gerel is the winner of the Black British Theatre Award for Book &amp; Lyrics (2023), presented at The National Theatre, and was nominated for the Stage Debut Awards (2023) as Best Composer/Lyricist/Book Writer for his work as Lyricist &amp; Rapperturg on the multi-award-winning <strong>Alice in Wonderland</strong> at Brixton House (a Poltergeist Theatre production, published by Samuel French).</p>
+<p>As Co-Artistic Director of Wound Up Theatre, Gerel is committed to amplifying voices from communities that are too often unheard. Beyond the stage, he is a registered LAMDA teacher, a workshop facilitator who has brought storytelling-through-rap into schools across the UK, and a published playwright — Tones is published by Methuen Drama (Bloomsbury).</p>
+</div></div></div>
+
+<!-- WORK -->
+<div class="page" id="page-work"><div style="height:56px"></div><div class="section"><div class="section-label">Portfolio</div><div class="section-title">Work</div>
+
+<!-- ======= WRITING & RAPPERTURGY ======= -->
+<div style="margin-bottom:40px">
+<div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,.15)">Writing &amp; Rapperturgy</div>
+
+<div class="card"><div class="card-tag" style="background:var(--gold-glow);color:var(--gold)">PUBLISHED — METHUEN DRAMA</div><h3>Tones: A Hip-Hop Opera</h3><div class="card-subtitle">Writer &amp; Performer — Wound Up Theatre</div><div class="card-meta">Brixton House, Edinburgh Fringe, Bristol Old Vic, The Lowry, Norwich Theatre, Belgrade Coventry, ARC Stockton, SICK Festival &amp; more</div><p>A one-man show told almost entirely through rapping. Tones follows Jerome — navigating racism, classism, colourism, and the hazards of growing up. What happens if you're not Black enough for the ends, but too Black for the rest of the world?</p><div class="card-awards"><span class="card-award">★ OFFIE Winner 2026 — Sound &amp; Music</span><span class="card-award">★ BBTA Winner 2023 — Book &amp; Lyrics</span></div><div class="card-quote">★★★★★ "Succeeds on every level" — All That Dazzles</div><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://www.amazon.co.uk/Tones-Modern-Plays-Gerel-Falconer/dp/1350525960" target="_blank" class="detail-link"><span>Buy the published play</span><span class="detail-link-url">Amazon →</span></a><a href="https://brixtonhouse.co.uk/shows/tones-a-hip-hop-opera/" target="_blank" class="detail-link"><span>Brixton House — Show Page</span><span class="detail-link-url">brixtonhouse.co.uk →</span></a><a href="https://www.allthatdazzles.co.uk/post/review-tones-a-hip-hop-opera-brixton-house" target="_blank" class="detail-link"><span>★★★★★ Review — All That Dazzles</span><span class="detail-link-url">allthatdazzles.co.uk →</span></a><a href="https://narcmagazine.com/tones-a-hip-hop-opera/" target="_blank" class="detail-link"><span>Interview — NARC Magazine</span><span class="detail-link-url">narcmagazine.com →</span></a><a href="https://www.voicemag.uk/interview/12788/interview-with-gerel-falconer-writer-actor-rapperturg-and-mc" target="_blank" class="detail-link"><span>Interview — Voice Magazine</span><span class="detail-link-url">voicemag.uk →</span></a></div></div>
+
+<div class="card"><div class="card-tag" style="background:var(--gold-glow);color:var(--gold)">MULTI-AWARD WINNING — PUBLISHED BY SAMUEL FRENCH</div><h3>Alice in Wonderland</h3><div class="card-subtitle">Lyricist &amp; Rapperturg — Poltergeist Theatre / Brixton House</div><div class="card-meta">Brixton House (2022 &amp; 2024 seasons)</div><p>A razor-sharp, rap-infused reimagining of Lewis Carroll's classic, set on the London Underground. Gerel wrote all lyrics and raps for this multi-award-winning Christmas production.</p><div class="card-awards"><span class="card-award">★ BBTA — Book &amp; Lyrics</span><span class="card-award">★ BBTA — Theatre Design</span><span class="card-award">★ OFFIE — Best Newcomer (Nkhanise Phiri)</span><span class="card-award">★ OFFIE — Best Ensemble</span><span class="card-award">★ Stage Debut Nominee</span></div><div class="card-quote">★★★★★ "Hamiltonesque raps from lyricist and rapperturg Gerel Falconer" — Broadway World</div><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://brixtonhouse.co.uk/shows/alice-in-wonderland/" target="_blank" class="detail-link"><span>Brixton House — Show Page</span><span class="detail-link-url">brixtonhouse.co.uk →</span></a><a href="https://www.broadwayworld.com/westend/article/Review-ALICE-IN-WONDERLAND-Brixton-House-Theatre-20221208" target="_blank" class="detail-link"><span>★★★★★ Review — Broadway World</span><span class="detail-link-url">broadwayworld.com →</span></a><a href="https://www.londontheatre1.com/reviews/alice-in-wonderland-at-brixton-house/" target="_blank" class="detail-link"><span>Review — London Theatre 1</span><span class="detail-link-url">londontheatre1.com →</span></a><a href="https://saltertonartsreview.com/2022/12/alice-in-wonderland-brixton-house-london/" target="_blank" class="detail-link"><span>Review — Salterton Arts Review</span><span class="detail-link-url">saltertonartsreview.com →</span></a></div></div>
+
+<div class="card" style="border-color:rgba(46,204,113,.15)"><div class="card-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">IN DEVELOPMENT</div><h3>Black Power Desk</h3><div class="card-subtitle">Rapperturgy &amp; Lyrics — Brixton House</div><div class="card-meta">Currently being redeveloped. Cast album recording forthcoming.</div><p>1970s London. Two sisters divided by grief and radical politics. Lead writer Urielle Klein-Mekongo, with Rapperturgy &amp; Lyrics by Gerel Falconer and music by Renell Shaw. Gerel is a key member of the songwriting team shaping the show's future development.</p><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://brixtonhouse.co.uk/shows/black-power-desk/" target="_blank" class="detail-link"><span>Brixton House — Show Page</span><span class="detail-link-url">brixtonhouse.co.uk →</span></a></div></div>
+
+<div class="card" style="border-color:rgba(46,204,113,.15)"><div class="card-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">UPCOMING — RETURNING (DATE TBC)</div><h3>The UK Drill Project</h3><div class="card-subtitle">Collaborator &amp; Songwriter — HighRise Entertainment</div><div class="card-meta">Barbican (Oxford Samuel Beckett Theatre Trust Award Winner)</div><p>Wrote and performed songs including The Report and Bars &amp; Railings, and contributed verses to No Comment, Where's Your Head At and Lulu.</p><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://open.spotify.com/album/3zaB7rVwjD4t43BVt3Ji0W" target="_blank" class="detail-link"><span>Listen to the soundtrack</span><span class="detail-link-url">Spotify →</span></a><a href="https://youtu.be/5qYEUQjf4rQ" target="_blank" class="detail-link"><span>Watch the trailer</span><span class="detail-link-url">YouTube →</span></a></div></div>
+
+<div class="card"><h3>Lil.Miss.Lady</h3><div class="card-subtitle">Collaborator &amp; Songwriter — HighRise Theatre / HighTide</div><div class="card-meta">Roundhouse, Latitude Festival (2018) &bull; Barbican, UK Tour (2025)</div><p>Heavily involved in the R&amp;D stage, drawing on lived experience in the Grime scene to help build the show's timeline. Wrote on the Days Of The Week Riddim.</p><div class="card-quote">★★★★ "Pay close attention to HighRise, they are the future that theatre deserves" — Exeunt Magazine</div><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://www.barbican.org.uk/whats-on/2025/event/highrise-entertainment-lil-miss-lady" target="_blank" class="detail-link"><span>Barbican — Show Page (2025)</span><span class="detail-link-url">barbican.org.uk →</span></a><a href="https://exeuntmagazine.com/features/latitude-2018-utopia/" target="_blank" class="detail-link"><span>Exeunt — Latitude 2018 Review</span><span class="detail-link-url">exeuntmagazine.com →</span></a></div></div>
+
+<div class="card"><h3>Merryville</h3><div class="card-subtitle">Co-Writer — HighRise Theatre</div><div class="card-meta">Camden People's Theatre, Latitude Festival</div><p>A grime concept-concert set in dystopian 2020 London. The second in a trilogy of two-handed urban musicals by Gerel Falconer and Dominic Garfield.</p><div class="card-quote">★★★★ "An articulate, amusing and angry political rant through the medium of grime" — The Stage</div><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://open.spotify.com/album/31oRql9CmkpKs5rqErYxoY" target="_blank" class="detail-link"><span>Listen to the soundtrack</span><span class="detail-link-url">Spotify →</span></a><a href="https://youtu.be/8Sv9VY6clPE" target="_blank" class="detail-link"><span>Watch — Video 1</span><span class="detail-link-url">YouTube →</span></a><a href="https://youtu.be/xeMIt2Ol8uw" target="_blank" class="detail-link"><span>Watch — Video 2</span><span class="detail-link-url">YouTube →</span></a><a href="https://www.londontheatre1.com/reviews/there-is-a-lot-to-like-and-laugh-merryville/" target="_blank" class="detail-link"><span>Review — London Theatre 1</span><span class="detail-link-url">londontheatre1.com →</span></a></div></div>
+
+<div class="card"><h3>Penny Lane</h3><div class="card-subtitle">Co-Writer — HighRise Theatre</div><div class="card-meta">The Yard Theatre, Hackney Wick</div><p>A Hip Hop-era (concept concert) with a live DJ. Set in the form of a murder trial with flashbacks, Penny Lane tells the story of a turbulent relationship between two brothers. The first in a trilogy of two-handed urban musicals by Gerel Falconer and Dominic Garfield.</p><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://www.iamhiphopmagazine.com/a-stroll-down-penny-lane-with-dominic-garfield-highrise_uk/" target="_blank" class="detail-link"><span>Interview — I Am Hip Hop Magazine</span><span class="detail-link-url">iamhiphopmagazine.com →</span></a></div></div>
+
+</div>
+
+<!-- ======= ACTING ======= -->
+<div>
+<div style="font-size:11px;letter-spacing:3px;color:var(--purple);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(123,94,167,.15)">Acting</div>
+
+<div class="card"><h3>Tones: A Hip-Hop Opera</h3><div class="card-subtitle">Performer — Wound Up Theatre</div><div class="card-meta">National tour — Brixton House, Edinburgh Fringe, Bristol Old Vic, The Lowry &amp; more</div><p>Solo performer. One hour of continuous rapping, embodying multiple characters across Jerome's life story.</p></div>
+
+<div class="card" style="border-color:rgba(46,204,113,.15)"><div class="card-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">IN DEVELOPMENT</div><h3>Black Power Desk</h3><div class="card-subtitle">Actor (Carlton) — Brixton House</div><div class="card-meta">Currently being redeveloped. Cast album recording forthcoming.</div></div>
+
+<div class="card" style="border-color:rgba(46,204,113,.15)"><div class="card-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">UPCOMING — RETURNING (DATE TBC)</div><h3>The UK Drill Project</h3><div class="card-subtitle">Actor — PC Bars, Yannis, Kick Back — HighRise Entertainment</div><div class="card-meta">Barbican (Oxford Samuel Beckett Theatre Trust Award Winner)</div><p>Challenging myths about UK Drill music and its links to youth violence.</p><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://youtu.be/5qYEUQjf4rQ" target="_blank" class="detail-link"><span>Watch the trailer</span><span class="detail-link-url">YouTube →</span></a><a href="https://www.barbican.org.uk/digital-programmes/digital-programme-the-uk-drill-project" target="_blank" class="detail-link"><span>Barbican Digital Programme</span><span class="detail-link-url">barbican.org.uk →</span></a><a href="https://www.thereviewshub.com/highrise-entertainment-the-uk-drill-project-barbican-london/" target="_blank" class="detail-link"><span>Review — The Reviews Hub</span><span class="detail-link-url">thereviewshub.com →</span></a><p>Featured in GQ, The Guardian, New York Times, Reuters, London Live &amp; The Evening Standard.</p></div></div>
+
+<div class="card"><h3>Lil.Miss.Lady</h3><div class="card-subtitle">Actor (DJ Rat) — HighRise Theatre / HighTide</div><div class="card-meta">Roundhouse, Latitude Festival (2018)</div></div>
+
+<div class="card"><h3>Merryville</h3><div class="card-subtitle">Performer (Dustin Roads) — HighRise Theatre</div><div class="card-meta">Camden People's Theatre, Latitude Festival</div></div>
+
+<div class="card"><h3>Penny Lane</h3><div class="card-subtitle">Actor — HighRise Theatre</div><div class="card-meta">The Yard Theatre, Hackney Wick</div></div>
+
+<div class="card"><h3>The Concrete Jungle Book</h3><div class="card-subtitle">Actor — HighRise Theatre</div><div class="card-meta">Artsdepot, Edinburgh Fringe (2017)</div><p>HighRise's acclaimed hip-hop musical catapulting Kipling's classic into inner-city Britain — described by the New York Times as "swapping bare necessities for harsh realities."</p><span class="detail-toggle" onclick="toggleDetail(this)">Find out more ▾</span><div class="detail-content"><a href="https://www.scotsman.com/whats-on/arts-and-entertainment/theatre-review-concrete-jungle-book-1442607" target="_blank" class="detail-link"><span>Review — The Scotsman</span><span class="detail-link-url">scotsman.com →</span></a><a href="https://www.artsdepot.co.uk/highrise-theatre-reflect-their-creation-space-residency" target="_blank" class="detail-link"><span>Artsdepot — HighRise Residency</span><span class="detail-link-url">artsdepot.co.uk →</span></a></div></div>
+
+<div class="card"><h3>Messiah</h3><div class="card-subtitle">Actor — HighRise Theatre</div><div class="card-meta">Stratford Circus, Streatham Space, Chapter Arts Cardiff, Bernie Grant Arts Centre</div></div>
+
+</div>
+</div></div>
+
+<!-- MUSIC & MEDIA -->
+<div class="page" id="page-music"><div style="height:56px"></div><div class="section"><div class="section-label">Music &amp; Media</div><div class="section-title">G-R3AL R3AL-G → Gerel Falconer</div>
+<div style="background:var(--accent-bg);border:1px solid rgba(123,94,167,.12);border-radius:6px;padding:24px;margin-bottom:32px"><p style="font-size:15px;color:var(--text2);line-height:1.7">Before the stage, there was the mic. I started out making music under the name <strong style="color:var(--text)">G-R3AL R3AL-G</strong> — rooted in the same Hip-Hop, Grime, UK Garage, UK Drill, Dancehall and Reggae that now fuels my theatre work. The music never stopped — it just found a bigger stage. I now create and release under my own name, <strong style="color:var(--gold)">Gerel Falconer</strong>.</p></div>
+
+<!-- VIDEOS -->
+<div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,.15)">Videos</div>
+
+<div class="card" style="padding:0;overflow:hidden;margin-bottom:12px"><a href="https://youtu.be/niZ-MQyIY-U" target="_blank" style="display:block;position:relative;padding-bottom:56.25%;height:0;background:#111;text-decoration:none"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center"><div style="font-size:48px">▶</div><div style="font-size:13px;color:#c9a84c;margin-top:8px">Watch on YouTube</div></div></a><div style="padding:16px"><h3 style="font-family:var(--df);font-size:18px;color:var(--text)">Tones: A Hip-Hop Opera — Trailer</h3><p style="font-size:12px;color:var(--muted);margin-top:4px">Production trailer for the OFFIE Award-winning one-man show.</p></div></div>
+
+<div class="card" style="padding:0;overflow:hidden;margin-bottom:12px"><a href="https://youtu.be/5qYEUQjf4rQ" target="_blank" style="display:block;position:relative;padding-bottom:56.25%;height:0;background:#111;text-decoration:none"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center"><div style="font-size:48px">▶</div><div style="font-size:13px;color:#c9a84c;margin-top:8px">Watch on YouTube</div></div></a><div style="padding:16px"><h3 style="font-family:var(--df);font-size:18px;color:var(--text)">The UK Drill Project — Trailer</h3><p style="font-size:12px;color:var(--muted);margin-top:4px">HighRise Entertainment at the Barbican.</p></div></div>
+
+<div style="font-size:11px;letter-spacing:3px;color:var(--purple);text-transform:uppercase;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(123,94,167,.15)">Interviews &amp; Discussions</div>
+
+<div class="card" style="padding:0;overflow:hidden;margin-bottom:12px"><a href="https://youtu.be/nXbKjin2YmI" target="_blank" style="display:block;position:relative;padding-bottom:56.25%;height:0;background:#111;text-decoration:none"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center"><div style="font-size:48px">▶</div><div style="font-size:13px;color:#c9a84c;margin-top:8px">Watch on YouTube</div></div></a><div style="padding:16px"><h3 style="font-family:var(--df);font-size:16px;color:var(--text)">Rapperturgy — Interview 1</h3></div></div>
+
+<div class="card" style="padding:0;overflow:hidden;margin-bottom:12px"><a href="https://youtu.be/PTLZH1Kxm9I" target="_blank" style="display:block;position:relative;padding-bottom:56.25%;height:0;background:#111;text-decoration:none"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center"><div style="font-size:48px">▶</div><div style="font-size:13px;color:#c9a84c;margin-top:8px">Watch on YouTube</div></div></a><div style="padding:16px"><h3 style="font-family:var(--df);font-size:16px;color:var(--text)">Rapperturgy — Interview 2</h3></div></div>
+
+<div class="card" style="padding:0;overflow:hidden;margin-bottom:12px"><a href="https://youtu.be/JCzpR4YixQ0" target="_blank" style="display:block;position:relative;padding-bottom:56.25%;height:0;background:#111;text-decoration:none"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center"><div style="font-size:48px">▶</div><div style="font-size:13px;color:#c9a84c;margin-top:8px">Watch on YouTube</div></div></a><div style="padding:16px"><h3 style="font-family:var(--df);font-size:16px;color:var(--text)">Rapperturgy — Interview 3</h3></div></div>
+
+<!-- SOUNDTRACKS -->
+<div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,.15)">Soundtracks</div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">The UK Drill Project — Soundtrack</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Including The Report and Bars &amp; Railings (written &amp; performed by Gerel Falconer)</p><a href="https://open.spotify.com/album/3zaB7rVwjD4t43BVt3Ji0W" target="_blank" class="detail-link"><span>Listen on Spotify</span><span class="detail-link-url">Spotify →</span></a></div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">Merryville — Soundtrack</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Co-written &amp; performed by Gerel Falconer and Dominic Garfield</p><a href="https://open.spotify.com/album/31oRql9CmkpKs5rqErYxoY" target="_blank" class="detail-link"><span>Listen on Spotify</span><span class="detail-link-url">Spotify →</span></a><a href="https://youtu.be/8Sv9VY6clPE" target="_blank" class="detail-link" style="margin-top:6px"><span>Watch — Video 1</span><span class="detail-link-url">YouTube →</span></a><a href="https://youtu.be/xeMIt2Ol8uw" target="_blank" class="detail-link" style="margin-top:6px"><span>Watch — Video 2</span><span class="detail-link-url">YouTube →</span></a></div>
+
+<!-- ORIGINAL MUSIC -->
+<div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,.15)">Original Music</div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">Tonal Shift EP</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">A collection of songs inspired by Tones: A Hip-Hop Opera</p><a href="https://gerelfalconer.bandcamp.com/album/tonal-shift-ep" target="_blank" class="detail-link"><span>Listen on Bandcamp</span><span class="detail-link-url">Bandcamp →</span></a></div>
+
+<!-- RAPPERTURGY -->
+<div style="font-size:11px;letter-spacing:3px;color:var(--purple);text-transform:uppercase;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(123,94,167,.15)">Rapperturgy — Storytelling Through Song</div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">Rapperturgy Collection</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Storytelling through song — the art of Rapperturgy in action</p><a href="https://m.soundcloud.com/gfalconer/sets/rapaturgy-storytelling-through-song/s-S8tMNYljj5w" target="_blank" class="detail-link"><span>Listen on SoundCloud</span><span class="detail-link-url">SoundCloud →</span></a></div>
+
+<!-- GENRE DEMOS -->
+<div style="font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,.15)">Writing Portfolio — Genre Demos</div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">Hip-Hop / Rap</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Demo tracks showcasing lyrical storytelling in the hip-hop tradition</p><a href="https://m.soundcloud.com/gfalconer/sets/hip-hop-rap/s-5D081MKopMI" target="_blank" class="detail-link"><span>Listen on SoundCloud</span><span class="detail-link-url">SoundCloud →</span></a></div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">Grime</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">High-energy grime writing rooted in the UK underground scene</p><a href="https://m.soundcloud.com/gfalconer/sets/grime-portfolio/s-fm7otXYMAun" target="_blank" class="detail-link"><span>Listen on SoundCloud</span><span class="detail-link-url">SoundCloud →</span></a></div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">UK Drill</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Drill writing demonstrating versatility across contemporary UK sounds</p><a href="https://m.soundcloud.com/gfalconer/sets/drill-writing-style/s-wgEADjGyCFE" target="_blank" class="detail-link"><span>Listen on SoundCloud</span><span class="detail-link-url">SoundCloud →</span></a></div>
+
+<!-- CHILDREN'S WORK -->
+<div style="font-size:11px;letter-spacing:3px;color:#2ecc71;text-transform:uppercase;margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(46,204,113,.15)">Children's Work — In Development</div>
+
+<div class="card"><h3 style="font-family:var(--df);font-size:18px;color:var(--text);margin-bottom:4px">The Bearcrow &amp; Dinner With Pippa</h3><p style="font-size:12px;color:var(--muted);margin-bottom:12px">Children's stories in development — available as audio demos</p><a href="https://m.soundcloud.com/gfalconer/sets/childrens-playlist/s-XWd0XPkcMOx" target="_blank" class="detail-link"><span>Listen on SoundCloud</span><span class="detail-link-url">SoundCloud →</span></a></div>
+
+<div style="background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:6px;padding:20px;margin-top:24px;text-align:center"><p style="font-size:13px;color:var(--muted)">More music coming soon. Follow <a href="https://instagram.com/gerelfalconer" target="_blank">@gerelfalconer</a> for updates.</p></div>
+</div></div>
+
+<!-- WORKSHOPS -->
+<div class="page" id="page-workshops"><div style="height:56px"></div><div class="section"><div class="section-label">Workshops &amp; Teaching</div><div class="section-title">Bring The Rapperturg to Your Classroom</div>
+<p style="font-size:15px;color:var(--text2);margin-bottom:32px">Interactive sessions that use hip-hop, grime, spoken word and storytelling to engage, educate and inspire. DBS-checked. Registered LAMDA teacher. Trained actor (East 15 Acting School). Founding member of HighRise Entertainment.</p>
+<div class="workshop-card"><div class="workshop-accent" style="background:var(--purple)"></div><div class="workshop-body"><div class="card-tag" style="background:var(--purple-glow);color:var(--purple)">Workshop</div><h3>Storytelling Through Rap</h3><div class="workshop-audience">KS3–KS5 &bull; Cross-curricular: History, English, Drama, PSHE</div><div class="workshop-details">Full day or half day &bull; From £200 (half day) / £350 (full day)</div><p>Inspired by Hamilton, students write and perform original songs about historical events. Develops literacy, creativity, confidence and public speaking.</p></div></div>
+<div class="workshop-card"><div class="workshop-accent" style="background:#3498db"></div><div class="workshop-body"><div class="card-tag" style="background:rgba(52,152,219,.1);color:#3498db">Workshop</div><h3>Slam Poetry Masterclass</h3><div class="workshop-audience">KS3–KS5 &amp; Adult &bull; English, Drama, PSHE</div><div class="workshop-details">Half day &bull; From £200</div><p>An immersive session in spoken word poetry — from finding your voice to performing with power, culminating in a mini slam competition.</p></div></div>
+<div class="workshop-card"><div class="workshop-accent" style="background:#2ecc71"></div><div class="workshop-body"><div class="card-tag" style="background:rgba(46,204,113,.1);color:#2ecc71">Keynote / Lecture</div><h3>Diversity &amp; Inclusivity in the Arts</h3><div class="workshop-audience">Corporate, University, Conference &bull; CPD applicable</div><div class="workshop-details">1–3 hours &bull; From £200 (1hr) / £500 (3×1hr programme)</div><p>A provocative, engaging keynote drawing on lived experience navigating theatre, hip-hop culture, class, race and identity. Perfect for Black History Month, arts conferences and corporate D&amp;I programmes.</p></div></div>
+<div class="workshop-card"><div class="workshop-accent" style="background:var(--gold)"></div><div class="workshop-body"><div class="card-tag" style="background:var(--gold-glow);color:var(--gold)">Private Tuition</div><h3>LAMDA Exam Preparation</h3><div class="workshop-audience">All ages &bull; All grades &bull; Online</div><div class="workshop-details">Tuesdays &amp; Thursdays, 6–8pm &bull; From £40/hr (1-to-1) / £25/student (small group)</div><p>Registered LAMDA teacher offering online exam preparation for all grades.</p></div></div>
+<div class="contact-cta"><h3>Ready to Book?</h3><p>Bespoke packages available. State school rates on request.</p><button class="btn" style="background:#000;color:var(--gold);margin-top:16px;border:none" onclick="showPage('contact')">GET IN TOUCH</button></div>
+</div></div>
+
+<!-- PRESS -->
+<div class="page" id="page-press"><div style="height:56px"></div><div class="section"><div class="section-label">Coverage</div><div class="section-title">Press &amp; Reviews</div>
+<div class="press-logos"><div class="press-logos-label">Featured In</div><div class="press-logos-list">GQ &bull; The Guardian &bull; New York Times &bull; The Stage &bull; Evening Standard &bull; Reuters &bull; London Live</div></div>
+<div style="margin:8px 0"><div class="section-label">Selected Reviews — Tones</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Succeeds on every level"</div><div class="review-source">— All That Dazzles</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Falconer's lyrics are sublime"</div><div class="review-source">— North West End UK</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"This show will blow you away from the very first second"</div><div class="review-source">— Seven Star Life</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"I've never been fully invested in a show after the first three minutes, but that's exactly what happened with Tones"</div><div class="review-source">— Afridiziak</div></div>
+<div style="margin:16px 0 8px"><div class="section-label">Selected Reviews — Alice in Wonderland</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Hamiltonesque raps from lyricist and rapperturg Gerel Falconer"</div><div class="review-source">— Broadway World</div></div>
+<div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Extremely impressive and awfully catchy rap lyrics"</div><div class="review-source">— Time &amp; Leisure</div></div>
+<div style="margin:16px 0 8px"><div class="section-label">Other Shows</div></div>
+<div class="review-card"><div class="review-stars">★★★★</div><div class="review-text">"An articulate, amusing and angry political rant through the medium of grime"</div><div class="review-source">— The Stage (Merryville)</div></div>
+<div class="review-card"><div class="review-stars">★★★★</div><div class="review-text">"Pay close attention to HighRise, they are the future that theatre deserves"</div><div class="review-source">— Exeunt Magazine (Lil.Miss.Lady)</div></div>
+<div style="margin-top:32px;margin-bottom:8px"><div class="section-label">Interviews &amp; Features</div></div>
+<a href="https://www.voicemag.uk/interview/12788/interview-with-gerel-falconer-writer-actor-rapperturg-and-mc" target="_blank" class="press-link"><span>Voice Magazine — Interview</span><span class="press-link-url">voicemag.uk →</span></a>
+<a href="https://narcmagazine.com/tones-a-hip-hop-opera/" target="_blank" class="press-link"><span>NARC Magazine — Tones</span><span class="press-link-url">narcmagazine.com →</span></a>
+<a href="https://www.barbican.org.uk/digital-programmes/digital-programme-the-uk-drill-project" target="_blank" class="press-link"><span>Barbican — UK Drill Digital Programme</span><span class="press-link-url">barbican.org.uk →</span></a>
+<a href="https://www.allthatdazzles.co.uk/post/review-tones-a-hip-hop-opera-brixton-house" target="_blank" class="press-link"><span>All That Dazzles — ★★★★★ Tones</span><span class="press-link-url">allthatdazzles.co.uk →</span></a>
+<a href="https://fairypoweredproductions.com/offwestend-awards-2026-winners-announced/" target="_blank" class="press-link"><span>OFFIE Awards 2026 — Winners</span><span class="press-link-url">fairypoweredproductions.com →</span></a>
+</div></div>
+
+<!-- CONTACT -->
+
+<!-- CONTACT -->
+<div class="page" id="page-contact"><div style="height:56px"></div><div class="section"><div class="section-label">Get in Touch</div><div class="section-title">Book Me</div>
+<div class="contact-card"><h3>Workshops &amp; Speaking</h3><div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"><span class="em" data-u="gerelfalconer" data-d="yahoo.co.uk"></span></span></div><div class="contact-row"><span class="contact-label">Social</span><span class="contact-value"><a href="https://instagram.com/gerelfalconer" target="_blank">@gerelfalconer</a> (Instagram)</span></div></div>
+<div class="contact-card"><h3>Acting Enquiries</h3><div class="contact-row"><span class="contact-label">Agent</span><span class="contact-value">ECA Agency</span></div></div>
+<div class="contact-card"><h3>Literary &amp; Writing</h3><div class="contact-row"><span class="contact-label">Agent</span><span class="contact-value">The Haworth Agency</span></div></div>
+<div class="contact-card"><h3>LAMDA Tuition</h3><div class="contact-row"><span class="contact-label">Availability</span><span class="contact-value">Tuesdays &amp; Thursdays, 6–8pm (online)</span></div><div class="contact-row"><span class="contact-label">Rate</span><span class="contact-value">From £40/hr (1-to-1) &bull; £25/student (small group)</span></div><div class="contact-row"><span class="contact-label">Contact</span><span class="contact-value"><span class="em" data-u="gerelfalconer" data-d="yahoo.co.uk"></span> or DM <a href="https://instagram.com/gerelfalconer" target="_blank">@gerelfalconer</a></span></div></div>
+<div class="contact-cta"><h3>Let's Work Together</h3><p>Whether it's a school workshop, a keynote, LAMDA tuition, or a creative collaboration — I'd love to hear from you.</p></div>
+</div></div>
+
+<footer><div class="footer-name">Gerel Falconer</div><div class="footer-subtitle">The Rapperturg</div><div class="footer-info">@gerelfalconer &bull; <span class="em" data-u="gerelfalconer" data-d="yahoo.co.uk"></span><br>Acting: ECA Agency &bull; Literary: The Haworth Agency<br>Co-Artistic Director, Wound Up Theatre &bull; Founding Member, HighRise Theatre (now HighRise Entertainment)</div><div class="footer-copy">&copy; 2026 Gerel Falconer. All rights reserved.</div></footer>
+
+<script>
+function showPage(id){
+  var pages=document.querySelectorAll('.page');
+  for(var i=0;i<pages.length;i++){pages[i].classList.remove('active')}
+  document.getElementById('page-'+id).classList.add('active');
+  var links=document.querySelectorAll('.nav-menu a');
+  for(var j=0;j<links.length;j++){
+    if(links[j].getAttribute('data-page')===id){links[j].classList.add('active')}
+    else{links[j].classList.remove('active')}
+  }
+  document.getElementById('navMenu').classList.remove('open');
+  window.scrollTo(0,0);
+}
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('open')}
+function toggleDetail(el){
+  var c=el.nextElementSibling;
+  if(c.classList.contains('open')){c.classList.remove('open');el.textContent='Find out more \u25BE'}
+  else{c.classList.add('open');el.textContent='Show less \u25B4'}
+}
+// Build email links to prevent Cloudflare email protection from corrupting them
+var ems=document.querySelectorAll('.em');
+for(var k=0;k<ems.length;k++){
+  var u=ems[k].getAttribute('data-u');
+  var d=ems[k].getAttribute('data-d');
+  var addr=u+String.fromCharCode(64)+d;
+  var a=document.createElement('a');
+  a.href='mai'+'lto:'+addr;
+  a.textContent=addr;
+  a.style.color='#c9a84c';
+  ems[k].parentNode.replaceChild(a,ems[k]);
+}
+</script>
+</body>
+</html>
